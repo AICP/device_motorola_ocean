@@ -91,4 +91,7 @@
     -->
     <integer name="config_longPressOnAppSwitchBehavior">1</integer>
 
+    <!-- Disable LiveDisplay -->
+    <bool name="config_liveDisplayAvailable">false</bool>
+
 </resources>
