@@ -25,6 +25,12 @@ TARGET_OTA_ASSERT_DEVICE := ocean
 # Audio
 # AUDIO_FEATURE_ENABLE_TFA98XX_FEEDBACK := true
 
+# Display
+TARGET_SCREEN_DENSITY := 320
+
+# HIDL
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+
 # Kernel
 TARGET_KERNEL_CONFIG := ocean_defconfig
 
@@ -37,6 +43,6 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 603979776     #   589824 * 1024 mmcblk0p60-6
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
 # Properties
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 # inherit from the proprietary version
 include vendor/motorola/ocean/BoardConfigVendor.mk

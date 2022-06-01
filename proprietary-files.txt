@@ -1,3 +1,6 @@
+### All blobs from this list, unless pinned and noted as otherwise,
+##  are from motorola/ocean_retail/ocean:10/QPOS30.52-29-12/401fd:user/release-keys
+
 # Audio - Prebuilt
 vendor/lib/libadm.so
 vendor/lib/liblog_vendor.so
@@ -261,6 +264,9 @@ vendor/firmware/cpp_firmware_v1_5_1.fw
 vendor/firmware/cpp_firmware_v1_5_2.fw
 vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
+
+# Camera - MotCamera2
+-product/priv-app/MotorolaSettingsProvider/MotorolaSettingsProvider.apk;PRESIGNED
 
 # Offmode charging
 vendor/bin/charge_only_mode

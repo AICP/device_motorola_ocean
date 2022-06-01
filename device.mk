@@ -17,15 +17,13 @@
 # Vendor blobs
 $(call inherit-product, vendor/motorola/ocean/ocean-vendor.mk)
 
-# Properties
--include $(LOCAL_PATH)/vendor_prop.mk
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \
+    AvoidAppsInCutoutOverlay \
     NoCutoutOverlay
 
 # AAPT
@@ -39,7 +37,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info_tfa987x.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_tfa987x.xml \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     $(LOCAL_PATH)/audio/audio_ext_spkr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_ext_spkr.conf \
+    $(LOCAL_PATH)/audio/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
     $(LOCAL_PATH)/audio/mixer_paths_tfa987x.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_tfa987x.xml
 
@@ -62,6 +62,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     init.ocean.rc
 
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service-sysfs
+
 # NFC and Secure Element packages
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_nfc/android.hardware.nfc.xml \
@@ -78,7 +82,8 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     SecureElement \
-    android.hardware.nfc@1.2-service.st
+    android.hardware.nfc@1.2-service.st \
+    android.hardware.secure_element@1.0.vendor:64
 
 # Sensors
 PRODUCT_COPY_FILES += \
